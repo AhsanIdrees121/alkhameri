@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        <record id="stock.stock_inventory_line_tree_no_product_create" model="ir.ui.view">-->
+        <!--            <field name="name">stock.inventory.line.tree2</field>-->
+        <!--            <field name="model">stock.inventory.line</field>-->
+        <!--            <field name="inherit_id" ref="stock.stock_inventory_line_tree"/>-->
+        <!--            <field name="mode">primary</field>-->
+        <!--            <field name="priority">1000</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree default_order="location_id,product_id" editable="top" string="Inventory Details"-->
+        <!--                      js_class="inventory_validate_button"-->
+        <!--                      decoration-danger="product_qty != theoretical_qty"-->
+        <!--                      decoration-muted="product_qty == theoretical_qty"-->
+        <!--                      decoration-bf="is_editable">-->
+        <!--                    <field name="company_id" invisible="1"/>-->
+        <!--                    <field name="product_tracking" invisible="1"/>-->
+        <!--                    <field name="is_editable" invisible="1"/>-->
+        <!--                    <field name="outdated" invisible="1"/>-->
+        <!--                    <field name="product_id" width="1.6"-->
+        <!--                           context="{'default_type': 'product'}"-->
+        <!--                           readonly="context.get('default_product_id', False)"-->
+        <!--                           attrs="{'readonly': ['|',-->
+        <!--                            ('is_editable', '=', False),-->
+        <!--                            ('state', '!=', 'confirm')]}"/>-->
+        <!--                    <field name="location_id" groups="stock.group_stock_multi_locations"-->
+        <!--                           options="{'no_create': True}"-->
+        <!--                           invisible="context.get('readonly_location_id', False)"-->
+        <!--                           readonly="context.get('readonly_location_id', False)"-->
+        <!--                           attrs="{'readonly': ['|',-->
+        <!--                            ('is_editable', '=', False),-->
+        <!--                            ('state', '!=', 'confirm')]}"/>-->
+        <!--                    <field name="uom_id_2" attrs="{'readonly': [('id', '!=', False)]}"/>-->
+        <!--                    <field name="product_uom_category_id" invisible="1"/>-->
+        <!--                    <field name="inventory_date" optional="hide" width="0.8"/>-->
+        <!--                    <field name="lot_id" groups="stock.group_production_lot"-->
+        <!--                           attrs="{'column_invisible': [('parent.show_lots_text', '=', True)], 'invisible': [('lots_visible', '=', False)]}"-->
+        <!--                           context="{'default_product_id': product_id, 'default_uom_id_2': product_uom_id, 'default_company_id': company_id, 'active_picking_id': picking_id}"-->
+        <!--                           optional="show"/>-->
+        <!--                    <field name="package_id" groups="stock.group_tracking_lot" width="0.8"-->
+        <!--                           attrs="{'readonly': ['|',-->
+        <!--                            ('is_editable', '=', False),-->
+        <!--                            ('state', '!=', 'confirm')]}"-->
+        <!--                           string="Package" optional="show"/>-->
+        <!--                    <field name="partner_id" groups="stock.group_tracking_owner"-->
+        <!--                           attrs="{'readonly': ['|',-->
+        <!--                            ('is_editable', '=', False),-->
+        <!--                            ('state', '!=', 'confirm')]}"/>-->
+        <!--                    <field name="theoretical_qty" string="On Hand" width="0.5"-->
+        <!--                           force_save="1" readonly="1" optional="show"/>-->
+        <!--                    <button name="action_refresh_quantity" title="Refresh quantity"-->
+        <!--                            icon="fa-refresh" type="object"-->
+        <!--                            attrs="{'invisible': [('outdated', '=', False)]}"/>-->
+        <!--                    <field name="product_qty" width="0.5" string="Counted"/>-->
+        <!--                    <field name="difference_qty" optional="show" width="0.5"/>-->
+        <!--                    <field name="product_uom_id" string="UoM" groups="uom.group_uom"-->
+        <!--                           width="0.3" force_save="1"/>-->
+        <!--                    <field name="inventory_id" invisible="1"/>-->
+        <!--                    <field name="state" invisible="1"/>-->
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+
+<!--        THIS CODE IS COMMENTED BY AHSAN bcz IT DOES NOT EXIST IN ODOO17-->
+<!--        <record id="stock.stock_inventory_line_tree" model="ir.ui.view">-->
+<!--            <field name="name">stock.inventory.line.tree</field>-->
+<!--            <field name="model">stock.inventory.line</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree default_order="location_id,product_id" editable="top" string="Inventory Details"-->
+<!--                      js_class="inventory_validate_button"-->
+<!--                      decoration-danger="product_qty != theoretical_qty"-->
+<!--                      decoration-muted="product_qty == theoretical_qty"-->
+<!--                      decoration-bf="is_editable">-->
+<!--                    <field name="company_id" invisible="1"/>-->
+<!--                    <field name="product_tracking" invisible="1"/>-->
+<!--                    <field name="is_editable" invisible="1"/>-->
+<!--                    <field name="outdated" invisible="1"/>-->
+<!--                    <field name="product_id" width="1.6"-->
+<!--                           context="{'default_type': 'product'}"-->
+<!--                           readonly="context.get('default_product_id', False)"-->
+<!--                           attrs="{'readonly': ['|',-->
+<!--                            ('is_editable', '=', False),-->
+<!--                            ('state', '!=', 'confirm')]}"/>-->
+
+<!--                    <field name="location_id" groups="stock.group_stock_multi_locations"-->
+<!--                           options="{'no_create': True}"-->
+<!--                           invisible="context.get('readonly_location_id', False)"-->
+<!--                           readonly="context.get('readonly_location_id', False)"-->
+<!--                           attrs="{'readonly': ['|',-->
+<!--                            ('is_editable', '=', False),-->
+<!--                            ('state', '!=', 'confirm')]}"/>-->
+<!--                    <field name="uom_id_2" attrs="{'readonly': [('id', '!=', False)]}"/>-->
+<!--                    <field name="product_uom_category_id" invisible="1"/>-->
+<!--                    <field name="inventory_date" optional="hide" width="0.8"/>-->
+<!--                    <field name="prod_lot_id" groups="stock.group_production_lot" width="0.8"-->
+<!--                           attrs="{'readonly': ['|', '|',-->
+<!--                            ('product_tracking', '=', 'none'),-->
+<!--                            ('is_editable', '=', False),-->
+<!--                            ('state', '!=', 'confirm')]}"-->
+<!--                           context="{'default_product_id': product_id, 'default_uom_id_2': uom_id_2, 'default_company_id': company_id}"-->
+<!--                           optional="show"/>-->
+<!--                    <field name="package_id" groups="stock.group_tracking_lot" width="0.8"-->
+<!--                           attrs="{'readonly': ['|',-->
+<!--                            ('is_editable', '=', False),-->
+<!--                            ('state', '!=', 'confirm')]}"-->
+<!--                           string="Package" optional="show"/>-->
+<!--                    <field name="partner_id" groups="stock.group_tracking_owner"-->
+<!--                           attrs="{'readonly': ['|',-->
+<!--                            ('is_editable', '=', False),-->
+<!--                            ('state', '!=', 'confirm')]}"/>-->
+<!--                    <field name="theoretical_qty" string="On Hand" width="0.5"-->
+<!--                           force_save="1" readonly="1" optional="show"/>-->
+<!--                    <button name="action_refresh_quantity" title="Refresh quantity"-->
+<!--                            icon="fa-refresh" type="object"-->
+<!--                            attrs="{'invisible': [('outdated', '=', False)]}"/>-->
+<!--                    <field name="product_qty" width="0.5" string="Counted"/>-->
+<!--                    <field name="difference_qty" optional="show" width="0.5"/>-->
+<!--                    <field name="product_uom_id" string="UoM" groups="uom.group_uom"-->
+<!--                           width="0.3" force_save="1"/>-->
+<!--                    <field name="inventory_id" invisible="1"/>-->
+<!--                    <field name="state" invisible="1"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record model="ir.ui.view" id="view_stock_picking_line_inherit">
+            <field name="name">stock.picking.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='move_ids_without_package']/tree//field[@name='forecast_availability']"
+                       position="replace">
+                    <field name="forecast_availability" string="Reserved"
+                           attrs="{'column_invisible': ['|', ('parent.picking_type_code', '!=', 'outgoing'), ('parent.state','=', 'done')]}"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_stock_move_line_detailed_operation_tree_expiry" model="ir.ui.view">
+            <field name="name">stock.move.line.operations.inherit.tree</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_id']" position="replace">
+                    <field name="lot_id" groups="stock.group_production_lot"
+                           attrs="{'column_invisible': [('parent.show_lots_text', '=', True)], 'invisible': [('lots_visible', '=', False)]}"
+                           context="{'default_product_id': product_id, 'default_uom_id_2': product_uom_id, 'default_company_id': company_id, 'active_picking_id': picking_id}"
+                           optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_stock_move_line_detailed_operation_tree_expiry_2" model="ir.ui.view">
+            <field name="name">stock.move.line.operations.inherit.tree</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lot_id']" position="replace">
+                    <field name="lot_id" groups="stock.group_production_lot"
+                           attrs="{'readonly': ['&amp;', ('package_level_id', '!=', False), ('parent.picking_type_entire_packs', '=', True)]}"
+                           invisible="not context.get('show_lots_m2o')"
+                           domain="[('product_id', '=', parent.product_id), ('company_id', '=', company_id)]"
+                           context="{
+                            'active_picking_id': picking_id,
+                            'default_company_id': parent.company_id,
+                            'default_product_id': parent.product_id,
+                            'default_uom_id_2': product_uom_id,
+                        }"
+                    />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

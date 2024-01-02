@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="model_stock_qty_adjustment" model="ir.actions.server">
+            <field name="name">Qty Adjustment</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="binding_model_id" ref="stock.model_stock_quant"/>
+            <field name="binding_view_types">form,list</field>
+            <field name="state">code</field>
+            <field name="code">action = records.stock_qty_adjustment()</field>
+        </record>
+    </data>
+</odoo>

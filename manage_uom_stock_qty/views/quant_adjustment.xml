@@ -1,0 +1,89 @@
+<odoo>
+    <data>
+        <record id="uom_adjustment_form" model="ir.ui.view">
+            <field name="name">Uom Adjustment</field>
+            <field name="model">uom.quant.adjustment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="product_id" readonly="1"/>
+                                <field name="selected_uom_id" readonly="1"/>
+                                <field name="converted_uom_id" required="1"
+                                       options="{'no_create': True, 'no_edit': True}"/>
+                                <field name="exiting_lot"/>
+                                <field name="product_uom_category_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="location_id" required="1" options="{'no_create': True, 'no_edit': True}"/>
+                                <field name="exist_lot_id"
+                                       invisible="not exiting_lot"
+                                       required="exiting_lot==True"
+                                       domain="[('product_id','=',product_id),('product_uom_id','=',converted_uom_id)]"
+                                       options="{'no_create': True, 'no_edit': True}"/>
+                                <field name="new_lot_id"
+                                       invisible="exiting_lot == True"
+                                       required="exiting_lot == False"/>
+                                <field name="changing_value"/>
+                            </group>
+                            <group>
+                                <field name="validation_message" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="uom_adjustment_line" widget="one2many">
+                                <tree string="Lines" editable="bottom" create="0" delete="0">
+                                    <field name="stock_quant_id" invisible="1"/>
+                                    <field name="product_id" readonly="1"/>
+                                    <field name="product_uom_id" readonly="1"/>
+                                    <field name="location_id" readonly="1"/>
+                                    <field name="lot_id" readonly="1"/>
+                                    <field name="on_hand" readonly="1"/>
+                                    <field name="counted"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="confirm_action" string="Confirm" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="uom_adjustment_tree" model="ir.ui.view">
+            <field name="name">Uom Adjustment</field>
+            <field name="model">uom.quant.adjustment</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="product_id"/>
+                    <field name="selected_uom_id"/>
+                    <field name="converted_uom_id"/>
+                    <field name="exiting_lot"/>
+                    <field name="product_uom_category_id"/>
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_uom_quant_adjustment" model="ir.actions.act_window">
+            <field name="name">Meetings</field>
+            <field name="res_model">uom.quant.adjustment</field>
+            <!--            <field name="binding_model_id" ref="model_uom_quant_adjustment"/>-->
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="manage_uom_stock_qty.uom_adjustment_form"/>
+            <field name="target">new</field>
+            <!--            <field name="context">{}</field>-->
+        </record>
+        <record id="stock_product_normal_action" model="ir.actions.act_window">
+            <field name="name">Uom Quant Adjustment</field>
+            <field name="res_model">uom.quant.adjustment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_uom_quant_adjustment" name="Adjustment" parent="stock.menu_stock_root" sequence="5"/>
+        <menuitem id="menu_uom_quant_adjustment_child" name="Quant Adjustment" action="stock_product_normal_action"
+                  parent="menu_uom_quant_adjustment" sequence="1"/>
+    </data>
+</odoo>

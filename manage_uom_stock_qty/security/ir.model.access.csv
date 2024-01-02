@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_uom_quant_adjustment,name_uom_quant_adjustment_manage_uom_stock_qty,model_uom_quant_adjustment,,1,1,1,1
+access_uom_quant_adjustment_line,name_uom_quant_adjustment_manage_uom_stock_qty_line,model_uom_quant_adjustment_line,,1,1,1,1
+access_stock_quant_all,stock.quant Main Admin,model_stock_quant,stock.group_stock_manager,1,1,1,1
