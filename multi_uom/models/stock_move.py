@@ -23,7 +23,11 @@ class StockMoveLine(models.Model):
         for rec in res:
             quant_id = self.env['stock.quant'].search(
                 [('product_id.id', '=', rec.product_id.id), ('location_id.id', '=', rec.location_id.id),
-                 ('uom_id_2.id', '=', rec.product_uom_id.id), ('lot_id', '=', rec.lot_id.id)])
+                 ('uom_id_2.id', '=', rec.product_uom_id.id)])
+            if len(quant_id) > 1:
+                quant_id = self.env['stock.quant'].search(
+                    [('product_id.id', '=', rec.product_id.id), ('location_id.id', '=', rec.location_id.id),
+                     ('uom_id_2.id', '=', rec.product_uom_id.id), ('lot_id', '=', rec.lot_id.id)])
             if quant_id:
                 rec.quant_id = quant_id.id
         return res
